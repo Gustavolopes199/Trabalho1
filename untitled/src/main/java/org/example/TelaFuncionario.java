@@ -1,9 +1,10 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TelaFuncionario {
-
+    Scanner id = new Scanner(System.in);
     /* 
     public void testeFuncionamento(InfUsuario opcao){
         if(opcao.isFuncionario() = true){  
@@ -14,6 +15,17 @@ public class TelaFuncionario {
     }  */
 
 
+    public int opcoesFunc(){
+        System.out.println("Bem vindo, qual ação deseja realizar?");
+        System.out.println("1 - Pagamento");
+        System.out.println("2 - Consultar Alunos");
+        System.out.println("3 - Alterar valor");
+        System.out.println("4 - Ativar aluno");
+        System.out.println("5 - Alterar vencimento");
+        return id.nextInt();
+    }
+
+
     public void impress1(InfUsuario Teste){
         System.out.printf("Olá %s, qual ação gostaria de realizar", Teste.getNome());
     }
@@ -22,8 +34,13 @@ public class TelaFuncionario {
         System.out.printf("Ola %s, você não é aluno, contate o financeiro", Teste.getNome());
     }
     
-    
-    public int consultarAluno (String nome, ArrayList teste){
+    public String lerNome(){
+        return id.nextLine();
+    }
+
+    public int consultarAluno (ArrayList teste){
+        System.out.println("Digite o nome do aluno que deseja achar");
+        String nome = id.next();
         int boca = 999;
         for(int i = 0; i < teste.size(); i ++){
             if(teste.contains(nome)){

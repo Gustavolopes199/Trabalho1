@@ -13,14 +13,15 @@ public class Main {
         ArrayList<InfUsuario> torto = new ArrayList<>();
         torto.add(CRA.aluno1);
         torto.add(CRA.aluno2);
-
-        System.out.println("DIGITE O NOME DO ALUNO QUE DESEJA ACHAR");
-        Scanner id = new Scanner(System.in);
-        String nome = id.nextLine();
-
-
-        System.out.println(TF.consultarAluno(nome, torto));
-
         
+        switch (TF.opcoesFunc()){
+                case 1:
+                TF.consultarAluno(torto);
+                break;
+                default:
+                System.out.println("defaullt");
+        }
+        
+        System.out.println(TF.consultarAluno(torto));
     }
 }
