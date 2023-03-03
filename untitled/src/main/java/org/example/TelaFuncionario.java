@@ -5,24 +5,35 @@ import java.util.Scanner;
 
 public class TelaFuncionario {
     Scanner id = new Scanner(System.in);
-    /* 
-    public void testeFuncionamento(InfUsuario opcao){
-        if(opcao.isFuncionario() = true){  
-        impress1(opcao);
-     }else(opcao.isFuncionario() = false){ 
-        impress2(opcao);
-     }
-    }  */
+   public void chamarFuncFuncionario(){
+    switch(opcoesFunc()){
+        case 1:
+        System.out.println("call pagamento");
+            break;
+        case 2:
+            System.out.println("call para consultar aluno");
+            break;
+        case 3:
+            System.out.println("Call alterar valor");
+            break;
+        case 4:
+            System.out.println("Call ativar aluno");
+            break;
+        case 5:
+            System.out.println("Call alterar vencimento");
+            break; 
+    }
+}
 
-
-    public int opcoesFunc(){
+    private int opcoesFunc(){
         System.out.println("Bem vindo, qual ação deseja realizar?");
         System.out.println("1 - Pagamento");
         System.out.println("2 - Consultar Alunos");
         System.out.println("3 - Alterar valor");
         System.out.println("4 - Ativar aluno");
         System.out.println("5 - Alterar vencimento");
-        return id.nextInt();
+        int topz = id.nextInt();
+        return topz;
     }
 
 
