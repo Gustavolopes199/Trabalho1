@@ -1,9 +1,12 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TelaFuncionario {
+    CriarUsuario criaruser = new CriarUsuario();
+
+
+
     Scanner id = new Scanner(System.in);
    public void chamarFuncFuncionario(){
     switch(opcoesFunc()){
@@ -49,18 +52,17 @@ public class TelaFuncionario {
         return id.nextLine();
     }
 
-    public int consultarAluno (ArrayList teste){
+    public int consultarAluno(){
         System.out.println("Digite o nome do aluno que deseja achar");
-        String nome = id.next();
+        String nome = id.nextLine();
+        for(InfUsuario nomes : criaruser.torto){
+            if(nomes.contains){
+                System.out.println(nome);
+            }
+        }
         int boca = 999;
-        for(int i = 0; i < teste.size(); i ++){
-            if(teste.contains(nome)){
-                boca = teste.indexOf(nome);
-            }else{
-                boca = 0;
-            }            
-        };
         return boca;
+        
     }
  
     public String consultarAluno(int id){
