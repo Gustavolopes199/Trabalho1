@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -13,7 +14,7 @@ public class InfUsuario {
 
     private String endereco;
     private String cep;
-    private Date data_cadastro;
+    private LocalDate data_cadastro;
 
     private String matricula;
     private boolean funcionario;
@@ -67,11 +68,11 @@ public class InfUsuario {
         this.cep = cep;
     }
 
-    public Date getData_cadastro() {
+    public LocalDate getData_cadastro() {
         return data_cadastro;
     }
 
-    public void setData_cadastro(Date data_cadastro) {
+    public void setData_cadastro(LocalDate data_cadastro) {
         this.data_cadastro = data_cadastro;
     }
 
@@ -103,16 +104,16 @@ public class InfUsuario {
     public InfUsuario() {
     }
 
-    public InfUsuario(int id, String nome, String sobrenome, String cpf, String endereco, String cep, String matricula, boolean funcionario, boolean aluno) {
+    public InfUsuario(int id, String nome, String sobrenome, String cpf, String endereco, String cep, LocalDate data_cadastro, String matricula, boolean funcionario, boolean aluno) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.endereco = endereco;
         this.cep = cep;
+        this.data_cadastro = data_cadastro;
         this.matricula = matricula;
         this.funcionario = funcionario;
         this.aluno = aluno;
-        this.data_cadastro = new Date();
     }
 }

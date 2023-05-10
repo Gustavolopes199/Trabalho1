@@ -1,21 +1,19 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TelaFuncionario {
-    CriarUsuario criaruser = new CriarUsuario();
-
-
 
     Scanner id = new Scanner(System.in);
-   public void chamarFuncFuncionario(){
+   public void chamarFuncFuncionario(ArrayList<InfUsuario> usuarios, ArrayList<Boletos> boleto){
+       int id = consultarAluno(usuarios);
+       if(id != 0){
     switch(opcoesFunc()){
         case 1:
-        System.out.println("call pagamento");
+        consultarBoletos(usuarios, boleto, id);
             break;
         case 2:
-            System.out.println("call para consultar aluno");
-            break;
         case 3:
             System.out.println("Call alterar valor");
             break;
@@ -25,7 +23,11 @@ public class TelaFuncionario {
         case 5:
             System.out.println("Call alterar vencimento");
             break; 
-    }
+        }
+       }else{
+           System.out.println("Aluno não encontrado");
+           chamarFuncFuncionario(usuarios,boleto);
+       }
 }
 
     private int opcoesFunc(){
@@ -52,25 +54,35 @@ public class TelaFuncionario {
         return id.nextLine();
     }
 
-    public int consultarAluno(){
-        System.out.println("Digite o nome do aluno que deseja achar");
-        String nome = id.nextLine();
-        for(InfUsuario nomes : criaruser.torto){
-            if(nomes.contains){
-                System.out.println(nome);
+    public int consultarAluno(ArrayList<InfUsuario> usuarios){
+        System.out.println("Digite o cpf do aluno que deseja alterar os dados");
+        String cpf = id.nextLine();
+        for(InfUsuario ide : usuarios){
+            if(ide.getCpf().equals(cpf)){
+                System.out.println("gostoso");
+                return ide.getId();
             }
         }
-        int boca = 999;
-        return boca;
-        
+        return 0;
     }
  
     public String consultarAluno(int id){
         return "empty";
     }
 
-    public void pagar(){
-        //metodo/pagar
+    public void consultarBoletos(ArrayList<InfUsuario> usuarios, ArrayList<Boletos> boletos, int id){
+            for(Boletos boleto : boletos) {
+                if (boleto.getId_aluno() == id) {
+                    if (boleto.isPago() == true) {
+                        System.out.println("O boleto no valor de: R$" + boleto.getValor() + " e vencimento em: " + boleto.getData_vencimento() + " esta pago");
+                    } else {
+                        System.out.println("O boleto no valor de: R$" + boleto.getValor() + " e vencimento em: " + boleto.getData_vencimento() + " esta vencido");
+                    }
+                }
+            }
+                System.out.println("Deseja pagar algum? Se sim, por favor digitar o codigo, caso não queira, digitar 0");
+            int h = id.nextInt();
+
     }
     public String consultarExtrato(){
         return "ximpa";
@@ -85,6 +97,11 @@ public class TelaFuncionario {
     }
 
 
+  /*  public void listarEscolherBoletos(int id){
+       for(InfUsuario boleto : criaruser.boleto){
+
+       }
+    }*/
 
 
 

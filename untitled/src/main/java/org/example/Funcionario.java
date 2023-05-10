@@ -10,10 +10,4 @@ public class Funcionario {
         this.usuarioAtivo = usuarioAtivo;
     }
 
-    /* consultar Aluno
-    pagar
-    consultar extrato
-    alterarVencimento
-    ativarUsuario
-     */
 }

@@ -5,14 +5,23 @@ import java.util.*;
 public class DecidirAluno {
 
     TelaFuncionario TF = new TelaFuncionario();
-    
+    CriarUsuario CU = new CriarUsuario();
 
+    ArrayList<Boletos> boletos = new ArrayList<>();
+    ArrayList<InfUsuario> usuario = new ArrayList<>();
     Scanner id = new Scanner(System.in);
     public void chamaFuncao(){
-    if(defUsuario() == 1){
-        System.out.println("call tela funcionario");
+        CU.criarUsuarios(usuario);
+        CU.criarBoletos(boletos);
+        int i = defUsuario();
+    if(i == 1 || i == 2 ){
+        if(i == 1) {
+            System.out.println("call tela usuario");
+        }else{
+            TF.chamarFuncFuncionario(usuario,boletos);
+        }
     } else{
-        TF.chamarFuncFuncionario();
+        System.out.println("out");
     }
 }
     
